@@ -11,7 +11,7 @@ function AboutPage() {
                 <p>This is a react app to leave feedback for a product or service. </p>
                 <p>Version: 1.0.0</p>
                 <p>
-                    <Link to="/">Back to Home</Link>
+                    <Link to={{pathname: "/"}}>Back to Home</Link>
                 </p>
             </div>
         </Card>
