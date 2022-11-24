@@ -10,6 +10,7 @@ import FeedbackStats from "./components/FeedbackStats"
 import FeedbackForm from "./components/FeedbackForm"
 import AboutPage from "./Pages/AboutPage";
 import AboutIconLink from "./components/Abouticonlinks";
+import { FeedbackProvider } from './context/FeedbackContext'
 
 function App() {
   const [feedback, setFeedback] = useState(feedbackData)
@@ -27,24 +28,26 @@ function App() {
   }
 
   return (
-    <Router>
-      {/* <Header text= "my text" bgcolor="red" textcolor = "smokewhite" />              props can be passed like this, if not passed then take the defaultone only */}
-      <Header />
-      {/* <FeedbackItem /> */}
-      <div className='container'>
-        <Routes>
-          <Route exact path="/" element = {
-            <>
-              <FeedbackForm handleAdd = { addFeedback } />
-              <FeedbackStats feedback = {feedback} />
-              <FeedbackList feedback={feedback}  handleDelete={deleteFeedback} />
-            </>
-          }></Route>
-          <Route path='/about' element={ <AboutPage /> } />
-        </Routes>
-        <AboutIconLink />
-      </div>
-    </Router>
+    <FeedbackProvider>
+      <Router>
+        {/* <Header text= "my text" bgcolor="red" textcolor = "smokewhite" />              props can be passed like this, if not passed then take the defaultone only */}
+        <Header />
+        {/* <FeedbackItem /> */}
+        <div className='container'>
+          <Routes>
+            <Route exact path="/" element = {
+              <>
+                <FeedbackForm handleAdd = { addFeedback } />
+                <FeedbackStats />
+                <FeedbackList  handleDelete={deleteFeedback} />
+              </>
+            }></Route>
+            <Route path='/about' element={ <AboutPage /> } />
+          </Routes>
+          <AboutIconLink />
+        </div>
+      </Router>
+    </FeedbackProvider>
   );
 }
 
