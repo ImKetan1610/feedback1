@@ -4,23 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 const FeedbackContext = createContext();
 
 export const FeedbackProvider = ({children}) => {
-    const [ feedback, setFeedback ] = useState([
-        {
-            id: 1,
-            text: "This is a feedback item 1",
-            rating: 10
-        },
-        {
-            id: 2,
-            text: "This is a feedback item 2",
-            rating: 9
-        },
-        {
-            id: 3,
-            text: "This is a feedback item 3",
-            rating: 8
-        },
-    ])
+    const [ feedback, setFeedback ] = useState([])
 
     const [feedbackEdit, setFeedbackEdit] = useState({
         item : {},
@@ -42,7 +26,7 @@ export const FeedbackProvider = ({children}) => {
 
     //update feedback item
     const updateFeedback = (id, updItem) => {
-        setFeedback(feedback.map((item) => (item.id === id ? {...item, ...updItem} : item)))
+        // setFeedback(feedback.map((item) => (item.id === id ? {...item, ...updItem} : item)))
         // console.log(id, updItem)
     }
 
@@ -69,3 +53,23 @@ export const FeedbackProvider = ({children}) => {
 }
 
 export default FeedbackContext;
+
+
+
+{/* when we used the data from backend we don't need this hardcoded data to be passed in useState
+        {
+            id: 1,
+            text: "This is a feedback item 1",
+            rating: 10
+        },
+        {
+            id: 2,
+            text: "This is a feedback item 2",
+            rating: 9
+        },
+        {
+            id: 3,
+            text: "This is a feedback item 3",
+            rating: 8
+        },
+    */}
