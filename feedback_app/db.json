@@ -6,9 +6,9 @@
       "text": "This is a feedback element 1 coming from the json server."
     },
     {
-      "id": 2,
-      "rating": 8,
-      "text": "This is a feedback element 2 coming from the json server."
+      "text": "This is a updated feedback element 2 coming from the json server.",
+      "rating": 7,
+      "id": 2
     },
     {
       "id": 3,
